@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  fastDDD_db:
+    image: "mongo:6.0.5"
+    ports:
+      - "27017:27017"
+    volumes:
+      - "fast_DDD:/data/db"
+volumes:
+  fast_DDD:
