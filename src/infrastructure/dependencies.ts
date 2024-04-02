@@ -13,5 +13,5 @@ export default {
     ServerSettings: serverSettings,
     DbSettings: dbSettings,
     CompanyRepository: companyRepository,
-    JobPostingRepository: jobPostingRepository
+    JobPostingRepository: jobPostingRepository,
 };

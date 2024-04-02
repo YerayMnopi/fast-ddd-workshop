@@ -12,7 +12,13 @@ export class Academy {
     jobPostings: JobPosting[];
     students: Student[];
 
-    constructor (name: string, jobPostingFilter: string, jobPostings: JobPosting[], students: Student[], identifier?: string) {
+    constructor(
+        name: string,
+        jobPostingFilter: string,
+        jobPostings: JobPosting[],
+        students: Student[],
+        identifier?: string,
+    ) {
         this.name = name;
         this.jobPostingFilter = jobPostingFilter;
         this.jobPostings = jobPostings;

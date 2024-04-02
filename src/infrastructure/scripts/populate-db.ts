@@ -6,11 +6,11 @@ import type CompaniesRepository from '../repositories/companies-repository.js';
 class PopulateDBScript {
     companyRepository: CompaniesRepository;
 
-    constructor (companyRepository: CompaniesRepository) {
+    constructor(companyRepository: CompaniesRepository) {
         this.companyRepository = companyRepository;
     }
 
-    async run (): Promise<void> {
+    async run(): Promise<void> {
         logger.info('PopulateDB script started');
         const result = await this.companyRepository.upsertMany(companies);
         logger.info(result);

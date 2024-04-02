@@ -9,7 +9,7 @@ server.use(companiesPath, companiesRouter);
 
 server.listen(serverSettings.port, () => {
     console.log(
-        `[server]: Server is running at http://${serverSettings.host}:${serverSettings.port}`
+        `[server]: Server is running at http://${serverSettings.host}:${serverSettings.port}`,
     );
 });
 

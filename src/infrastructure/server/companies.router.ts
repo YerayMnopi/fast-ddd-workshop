@@ -13,11 +13,21 @@ companiesRouter.route('/').get(async (req: Request, res: Response) => {
     return res.send(companies);
 });
 
-companiesRouter.post('/:companyId/job-postings', bodyParser.json(), async (req: Request<{ companyId: string }, any, { title: string }>, res: Response) => {
-    const companyId = req.params.companyId;
-    const handler = new PublishJobPostingHandler(dependencies.CompanyRepository, dependencies.JobPostingRepository);
-    const jobPosting = await handler.handle(companyId, req.body.title);
-    return res.send(jobPosting);
-});
+companiesRouter.post(
+    '/:companyId/job-postings',
+    bodyParser.json(),
+    async (
+        req: Request<{ companyId: string }, any, { title: string }>,
+        res: Response,
+    ) => {
+        const companyId = req.params.companyId;
+        const handler = new PublishJobPostingHandler(
+            dependencies.CompanyRepository,
+            dependencies.JobPostingRepository,
+        );
+        const jobPosting = await handler.handle(companyId, req.body.title);
+        return res.send(jobPosting);
+    },
+);
 
 export default companiesRouter;

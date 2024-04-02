@@ -18,7 +18,7 @@ describe('GET /companies', function () {
 
         expect(response.statusCode).toBe(200);
         expect(response.body).toStrictEqual([
-            { ...companies[0], cif: { ...companies[0].cif } }
+            { ...companies[0], cif: { ...companies[0].cif } },
         ]);
     });
 });
@@ -34,7 +34,9 @@ describe('POST /companies/:companyId/job-postings', () => {
 
     it('responds with json', async () => {
         const jobPostingTitle = 'test';
-        const response = await request(app).post(`/companies/${companies[0].identifier}/job-postings`).send({ title: jobPostingTitle });
+        const response = await request(app)
+            .post(`/companies/${companies[0].identifier}/job-postings`)
+            .send({ title: jobPostingTitle });
 
         expect(response.statusCode).toBe(200);
         expect(response.body.title).toEqual(jobPostingTitle);
