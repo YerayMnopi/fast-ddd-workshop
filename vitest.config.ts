@@ -6,4 +6,4 @@ export default defineConfig({
     plugins: [tsconfigPaths()],
 });
 
-process.env["DB_NAME"] = "job_posting_tests"
+process.env['DB_NAME'] = 'job_posting_tests';
