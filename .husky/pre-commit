@@ -1,4 +1,4 @@
-yarn lint:fix
-yarn format:write
+yarn lint
+yarn format:check
 yarn build
 yarn test
