@@ -11,7 +11,7 @@
     "scripts": {
         "predev": "yarn run build",
         "build": "tsc",
-        "dev": "node dist/infrastructure/server.js",
+        "dev": "node dist/infrastructure/server/server.js",
         "lint": "eslint '*/**/*.ts'",
         "lint:fix": "eslint '*/**/*.ts'  --quiet --fix",
         "test": "vitest run",
@@ -21,6 +21,7 @@
         "populateDb": "node dist/infrastructure/scripts/populate-db.js"
     },
     "dependencies": {
+        "body-parser": "^1.20.2",
         "express": "^4.19.1",
         "mongodb": "6.5",
         "pino": "^8.19.0",

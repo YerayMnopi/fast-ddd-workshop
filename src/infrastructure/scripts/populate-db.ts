@@ -1,16 +1,16 @@
 import dependencies from '../dependencies.js';
 import companies from '../fixtures/companies.js';
 import { logger } from '../logger.js';
-import type CompanyRepository from '../repositories/company-repository.js';
+import type CompaniesRepository from '../repositories/companies-repository.js';
 
 class PopulateDBScript {
-    companyRepository: CompanyRepository;
+    companyRepository: CompaniesRepository;
 
-    constructor(companyRepository: CompanyRepository) {
+    constructor (companyRepository: CompaniesRepository) {
         this.companyRepository = companyRepository;
     }
 
-    async run(): Promise<void> {
+    async run (): Promise<void> {
         logger.info('PopulateDB script started');
         const result = await this.companyRepository.upsertMany(companies);
         logger.info(result);

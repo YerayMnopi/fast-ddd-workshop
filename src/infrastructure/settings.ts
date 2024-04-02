@@ -20,11 +20,11 @@ export class DbSettings {
     private readonly dbName = process.env.DB_NAME ?? 'job_postings';
     private readonly client: MongoClient;
 
-    constructor() {
+    constructor () {
         this.client = new MongoClient(this.uri);
     }
 
-    get connection(): Db {
+    get connection (): Db {
         return this.client.db(this.dbName);
     }
 }
