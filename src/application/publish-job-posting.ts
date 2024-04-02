@@ -14,9 +14,13 @@ export class PublishJobPostingHandler {
         this.jobPostingRepository = jobPostingRepository;
     }
 
-    async handle(companyId: string, title: string): Promise<JobPosting> {
+    async handle(
+        companyId: string,
+        title: string,
+        category: string,
+    ): Promise<JobPosting> {
         const company = await this.companiesRepository.findById(companyId);
-        const jobPosting = new JobPosting(title, company.identifier);
+        const jobPosting = new JobPosting(title, company.identifier, category);
         await this.jobPostingRepository.upsertMany([jobPosting]);
         return jobPosting;
     }

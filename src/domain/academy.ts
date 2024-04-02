@@ -1,5 +1,4 @@
 import { v4 } from 'uuid';
-import { type Student } from './student.js';
 import { type JobPosting } from './job-posting.js';
 
 /**
@@ -10,19 +9,23 @@ export class Academy {
     name: string;
     jobPostingFilter: string;
     jobPostings: JobPosting[];
-    students: Student[];
+    // totalJobPostings: number;
 
     constructor(
         name: string,
         jobPostingFilter: string,
         jobPostings: JobPosting[],
-        students: Student[],
         identifier?: string,
     ) {
         this.name = name;
         this.jobPostingFilter = jobPostingFilter;
         this.jobPostings = jobPostings;
-        this.students = students;
         this.identifier = identifier ?? v4();
+    }
+
+    addJobPosting(jobPosting: JobPosting): void {
+        if (jobPosting.category === this.jobPostingFilter) {
+            this.jobPostings.push(jobPosting);
+        }
     }
 }

@@ -17,7 +17,11 @@ companiesRouter.post(
     '/:companyId/job-postings',
     bodyParser.json(),
     async (
-        req: Request<{ companyId: string }, any, { title: string }>,
+        req: Request<
+            { companyId: string },
+            any,
+            { title: string; category: string }
+        >,
         res: Response,
     ) => {
         const companyId = req.params.companyId;
@@ -25,7 +29,11 @@ companiesRouter.post(
             dependencies.CompanyRepository,
             dependencies.JobPostingRepository,
         );
-        const jobPosting = await handler.handle(companyId, req.body.title);
+        const jobPosting = await handler.handle(
+            companyId,
+            req.body.title,
+            req.body.category,
+        );
         return res.send(jobPosting);
     },
 );

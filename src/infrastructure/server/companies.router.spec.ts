@@ -34,11 +34,13 @@ describe('POST /companies/:companyId/job-postings', () => {
 
     it('responds with json', async () => {
         const jobPostingTitle = 'test';
+        const category = 'category';
         const response = await request(app)
             .post(`/companies/${companies[0].identifier}/job-postings`)
-            .send({ title: jobPostingTitle });
+            .send({ title: jobPostingTitle, category });
 
         expect(response.statusCode).toBe(200);
         expect(response.body.title).toEqual(jobPostingTitle);
+        expect(response.body.category).toEqual(category);
     });
 });

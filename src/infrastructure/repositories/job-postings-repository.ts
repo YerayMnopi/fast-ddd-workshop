@@ -34,7 +34,12 @@ export default class JobPostingRepository {
 
         for await (const doc of cursor) {
             jobPostings.push(
-                new JobPosting(doc.title, doc.companyId, doc.identifier),
+                new JobPosting(
+                    doc.title,
+                    doc.companyId,
+                    doc.category,
+                    doc.identifier,
+                ),
             );
         }
 
