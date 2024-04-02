@@ -11,14 +11,13 @@
     "scripts": {
         "predev": "yarn run build",
         "build": "tsc",
-        "dev": "node dist/infrastructure/server.js",
+        "dev": "node dist",
         "lint": "eslint '*/**/*.ts'",
         "lint:fix": "eslint '*/**/*.ts'  --quiet --fix",
         "test": "vitest run",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
-        "prepare": "husky",
-        "populateDb": "node dist/infrastructure/scripts/populate-db.js"
+        "prepare": "husky"
     },
     "dependencies": {
         "express": "^4.19.1",
